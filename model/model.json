@@ -8,45 +8,30 @@
         "model_config": {
             "class_name": "Sequential",
             "config": {
-                "name": "sequential_3",
+                "name": "sequential_4",
                 "trainable": true,
-                "dtype": {
-                    "module": "keras",
-                    "class_name": "DTypePolicy",
-                    "config": {
-                        "name": "float32"
-                    },
-                    "registered_name": null
-                },
+                "dtype": "float32",
                 "layers": [
                     {
                         "class_name": "InputLayer",
                         "config": {
-                            "batchInputShape": [
-                                null,
-                                3
-                            ],
                             "dtype": "float32",
                             "sparse": false,
                             "ragged": false,
-                            "name": "input_layer_1",
-                            "optional": false
+                            "name": "input_layer_2",
+                            "optional": false,
+                            "batchInputShape": [
+                                null,
+                                3
+                            ]
                         }
                     },
                     {
                         "class_name": "Embedding",
                         "config": {
-                            "batchInputShape": [null, 3],
-                            "name": "embedding_2",
+                            "name": "embedding_3",
                             "trainable": true,
-                            "dtype": {
-                                "module": "keras",
-                                "class_name": "DTypePolicy",
-                                "config": {
-                                    "name": "float32"
-                                },
-                                "registered_name": null
-                            },
+                            "dtype": "float32",
                             "input_dim": 148,
                             "output_dim": 50,
                             "embeddings_initializer": {
@@ -69,16 +54,9 @@
                     {
                         "class_name": "LSTM",
                         "config": {
-                            "name": "lstm_2",
+                            "name": "lstm_4",
                             "trainable": true,
-                            "dtype": {
-                                "module": "keras",
-                                "class_name": "DTypePolicy",
-                                "config": {
-                                    "name": "float32"
-                                },
-                                "registered_name": null
-                            },
+                            "dtype": "float32",
                             "return_sequences": true,
                             "return_state": false,
                             "go_backwards": false,
@@ -128,16 +106,9 @@
                     {
                         "class_name": "LSTM",
                         "config": {
-                            "name": "lstm_3",
+                            "name": "lstm_5",
                             "trainable": true,
-                            "dtype": {
-                                "module": "keras",
-                                "class_name": "DTypePolicy",
-                                "config": {
-                                    "name": "float32"
-                                },
-                                "registered_name": null
-                            },
+                            "dtype": "float32",
                             "return_sequences": false,
                             "return_state": false,
                             "go_backwards": false,
@@ -187,16 +158,9 @@
                     {
                         "class_name": "Dense",
                         "config": {
-                            "name": "dense_1",
+                            "name": "dense_2",
                             "trainable": true,
-                            "dtype": {
-                                "module": "keras",
-                                "class_name": "DTypePolicy",
-                                "config": {
-                                    "name": "float32"
-                                },
-                                "registered_name": null
-                            },
+                            "dtype": "float32",
                             "units": 148,
                             "activation": "softmax",
                             "use_bias": true,
@@ -267,7 +231,7 @@
             ],
             "weights": [
                 {
-                    "name": "sequential_3/dense_1/kernel",
+                    "name": "sequential_4/dense_2/kernel",
                     "shape": [
                         100,
                         148
@@ -275,14 +239,14 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/dense_1/bias",
+                    "name": "sequential_4/dense_2/bias",
                     "shape": [
                         148
                     ],
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/embedding_2/embeddings",
+                    "name": "sequential_4/embedding_3/embeddings",
                     "shape": [
                         148,
                         50
@@ -290,7 +254,7 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/lstm_2/lstm_cell/kernel",
+                    "name": "sequential_4/lstm_4/lstm_cell/kernel",
                     "shape": [
                         50,
                         400
@@ -298,7 +262,7 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/lstm_2/lstm_cell/recurrent_kernel",
+                    "name": "sequential_4/lstm_4/lstm_cell/recurrent_kernel",
                     "shape": [
                         100,
                         400
@@ -306,22 +270,14 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/lstm_2/lstm_cell/bias",
+                    "name": "sequential_4/lstm_4/lstm_cell/bias",
                     "shape": [
                         400
                     ],
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/lstm_3/lstm_cell/kernel",
-                    "shape": [
-                        100,
-                        400
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "sequential_3/lstm_3/lstm_cell/recurrent_kernel",
+                    "name": "sequential_4/lstm_5/lstm_cell/kernel",
                     "shape": [
                         100,
                         400
@@ -329,7 +285,15 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_3/lstm_3/lstm_cell/bias",
+                    "name": "sequential_4/lstm_5/lstm_cell/recurrent_kernel",
+                    "shape": [
+                        100,
+                        400
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "sequential_4/lstm_5/lstm_cell/bias",
                     "shape": [
                         400
                     ],
