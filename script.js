@@ -17,17 +17,21 @@ const outputArea = document.getElementById('outputArea');
 // --- 2. Modell und Daten laden ---
 async function loadResources() {
     try {
+        // Nutze hier deine exakte GitHub Pages Basis-URL!
+        // Achte auf den abschließenden Schrägstrich '/' nach dem Repo-Namen.
+        const BASE_URL = 'https://konstantinkoenigshofen.github.io/DeepLearning_EA3/';
+
         // Wörterbuch laden
-        const response = await fetch('./tfjs_model/woerterbuch.json');
+        const response = await fetch(BASE_URL + 'tfjs_model/woerterbuch.json');
         wordIndex = await response.json();
-        
-        // Reverse-Wörterbuch erstellen (für die Übersetzung ID -> Wort)
+                        
+        // Reverse-Wörterbuch erstellen
         for (let word in wordIndex) {
             indexWord[wordIndex[word]] = word;
         }
 
         // Modell laden
-        model = await tf.loadLayersModel('./tfjs_model/model.json');
+        model = await tf.loadLayersModel(BASE_URL + 'tfjs_model/model.json');
         
         statusDiv.innerText = "✅ Modell und Wörterbuch erfolgreich geladen! Bereit.";
         statusDiv.style.color = "green";
