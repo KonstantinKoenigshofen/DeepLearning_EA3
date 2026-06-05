@@ -5,6 +5,8 @@ let wordIndex = {};  // Wort -> ID
 let indexWord = {};  // ID -> Wort
 const SEQUENCE_LENGTH = 3; // Muss identisch zum Python-Training sein!
 let autoPredictInterval;
+let isAutoPredicting = false; // Flag, um die Schleife zu stoppen
+const MAX_AUTO_WORDS = 10;    // Laut Aufgabe: bis zu 10 Wörter
 
 // UI Elemente
 const statusDiv = document.getElementById('status');
@@ -121,14 +123,75 @@ function appendWord(word) {
 }
 
 // --- 5. Event Listener ---
-btnVorhersage.onclick = predictNextWords;
+    // Hilfsfunktion: Wartet X Millisekunden (für eine schöne Animation beim Auto-Schreiben)
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
-btnWeiter.onclick = async () => {
-    const topWords = await predictNextWords();
-    if (topWords && topWords.length > 0) {
-        appendWord(topWords[0].word); // Nimmt das wahrscheinlichste Wort
+    // I1) Vorhersage
+    btnVorhersage.onclick = predictNextWords;
+    
+    // I2) Weiter
+    btnWeiter.onclick = async () => {
+        const topWords = await predictNextWords();
+        if (topWords && topWords.length > 0) {
+            appendWord(topWords[0].word); 
+        }
+    };
+
+    // I3) Auto
+    document.getElementById('btnAuto').onclick = async () => {
+        isAutoPredicting = true;
+
+        // UX: Andere Buttons deaktivieren, Stopp aktivieren
+        document.getElementById('btnAuto').disabled = true;
+        document.getElementById('btnStopp').disabled = false;
+        btnVorhersage.disabled = true;
+        btnWeiter.disabled = true;
+
+        for (let i = 0; i < MAX_AUTO_WORDS; i++) {
+            if (!isAutoPredicting) break; // Bricht ab, wenn der User "Stopp" klickt
+
+            const topWords = await predictNextWords();
+            
+            if (topWords && topWords.length > 0) {
+                // Wort direkt an den Text anhängen
+                inputTextArea.value += " " + topWords[0].word;
+                
+                // 400 Millisekunden warten (UX: Man kann beim Schreiben zusehen)
+                await delay(400); 
+            } else {
+                break; // Beenden, falls keine Vorhersage möglich ist (z.B. Feld leer)
+            }
+        }
+
+        // Wenn die 10 Wörter erreicht sind, oder abgebrochen wurde: Aufräumen
+        stopAutoPredict();
+    };
+
+    // I3) Stopp
+    document.getElementById('btnStopp').onclick = () => {
+        isAutoPredicting = false; // Das teilt der Schleife oben mit, dass sie stoppen soll
+    };
+
+    // Hilfsfunktion zum Zurücksetzen der Buttons nach dem Auto-Lauf
+    function stopAutoPredict() {
+        isAutoPredicting = false;
+        
+        // UX: Buttons wieder in Normalzustand
+        document.getElementById('btnAuto').disabled = false;
+        document.getElementById('btnStopp').disabled = true;
+        btnVorhersage.disabled = false;
+        btnWeiter.disabled = false;
+
+        // Am Ende einmal die Chips für das letzte Wort anzeigen
+        predictNextWords();
     }
-};
+
+    // I4) Reset
+    document.getElementById('btnReset').onclick = () => {
+        inputTextArea.value = '';
+        outputArea.style.display = 'none';
+        stopAutoPredict(); // Falls gerade Auto läuft, auch abbrechen
+    };
 
 document.getElementById('btnReset').onclick = () => {
     inputTextArea.value = '';
