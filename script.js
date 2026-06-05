@@ -22,7 +22,7 @@ async function loadResources() {
         const BASE_URL = 'https://konstantinkoenigshofen.github.io/DeepLearning_EA3/';
 
         // Wörterbuch laden
-        const response = await fetch(BASE_URL + 'tfjs_model/woerterbuch.json');
+        const response = await fetch(BASE_URL + 'model/woerterbuch.json');
         wordIndex = await response.json();
                         
         // Reverse-Wörterbuch erstellen
@@ -31,7 +31,7 @@ async function loadResources() {
         }
 
         // Modell laden
-        model = await tf.loadLayersModel(BASE_URL + 'tfjs_model/model.json');
+        model = await tf.loadLayersModel(BASE_URL + 'model/model.json');
         
         statusDiv.innerText = "✅ Modell und Wörterbuch erfolgreich geladen! Bereit.";
         statusDiv.style.color = "green";
