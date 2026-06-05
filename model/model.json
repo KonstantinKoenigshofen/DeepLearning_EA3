@@ -8,7 +8,7 @@
         "model_config": {
             "class_name": "Sequential",
             "config": {
-                "name": "sequential_4",
+                "name": "sequential",
                 "trainable": true,
                 "dtype": "float32",
                 "layers": [
@@ -18,7 +18,7 @@
                             "dtype": "float32",
                             "sparse": false,
                             "ragged": false,
-                            "name": "input_layer_2",
+                            "name": "input_layer",
                             "optional": false,
                             "batchInputShape": [
                                 null,
@@ -29,7 +29,7 @@
                     {
                         "class_name": "Embedding",
                         "config": {
-                            "name": "embedding_3",
+                            "name": "embedding",
                             "trainable": true,
                             "dtype": "float32",
                             "input_dim": 148,
@@ -54,7 +54,7 @@
                     {
                         "class_name": "LSTM",
                         "config": {
-                            "name": "lstm_4",
+                            "name": "lstm",
                             "trainable": true,
                             "dtype": "float32",
                             "return_sequences": true,
@@ -106,7 +106,7 @@
                     {
                         "class_name": "LSTM",
                         "config": {
-                            "name": "lstm_5",
+                            "name": "lstm_1",
                             "trainable": true,
                             "dtype": "float32",
                             "return_sequences": false,
@@ -158,7 +158,7 @@
                     {
                         "class_name": "Dense",
                         "config": {
-                            "name": "dense_2",
+                            "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
                             "units": 148,
@@ -231,7 +231,7 @@
             ],
             "weights": [
                 {
-                    "name": "sequential_4/dense_2/kernel",
+                    "name": "sequential/dense/kernel",
                     "shape": [
                         100,
                         148
@@ -239,14 +239,14 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/dense_2/bias",
+                    "name": "sequential/dense/bias",
                     "shape": [
                         148
                     ],
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/embedding_3/embeddings",
+                    "name": "sequential/embedding/embeddings",
                     "shape": [
                         148,
                         50
@@ -254,7 +254,7 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/lstm_4/lstm_cell/kernel",
+                    "name": "sequential/lstm/lstm_cell/kernel",
                     "shape": [
                         50,
                         400
@@ -262,7 +262,7 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/lstm_4/lstm_cell/recurrent_kernel",
+                    "name": "sequential/lstm/lstm_cell/recurrent_kernel",
                     "shape": [
                         100,
                         400
@@ -270,22 +270,14 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/lstm_4/lstm_cell/bias",
+                    "name": "sequential/lstm/lstm_cell/bias",
                     "shape": [
                         400
                     ],
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/lstm_5/lstm_cell/kernel",
-                    "shape": [
-                        100,
-                        400
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "sequential_4/lstm_5/lstm_cell/recurrent_kernel",
+                    "name": "sequential/lstm_1/lstm_cell/kernel",
                     "shape": [
                         100,
                         400
@@ -293,7 +285,15 @@
                     "dtype": "float32"
                 },
                 {
-                    "name": "sequential_4/lstm_5/lstm_cell/bias",
+                    "name": "sequential/lstm_1/lstm_cell/recurrent_kernel",
+                    "shape": [
+                        100,
+                        400
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "sequential/lstm_1/lstm_cell/bias",
                     "shape": [
                         400
                     ],
