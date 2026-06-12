@@ -32,8 +32,8 @@
                             "name": "embedding",
                             "trainable": true,
                             "dtype": "float32",
-                            "input_dim": 148,
-                            "output_dim": 50,
+                            "input_dim": 19,
+                            "output_dim": 100,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
                                 "class_name": "RandomUniform",
@@ -161,7 +161,7 @@
                             "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
-                            "units": 148,
+                            "units": 19,
                             "activation": "softmax",
                             "use_bias": true,
                             "kernel_initializer": {
@@ -206,7 +206,7 @@
                 "class_name": "Adam",
                 "config": {
                     "name": "adam",
-                    "learning_rate": 0.009999999776482582,
+                    "learning_rate": 0.0010000000474974513,
                     "weight_decay": null,
                     "clipnorm": null,
                     "global_clipnorm": null,
@@ -234,29 +234,29 @@
                     "name": "dense/kernel",
                     "shape": [
                         100,
-                        148
+                        19
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "dense/bias",
                     "shape": [
-                        148
+                        19
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "embedding/embeddings",
                     "shape": [
-                        148,
-                        50
+                        19,
+                        100
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/kernel",
                     "shape": [
-                        50,
+                        100,
                         400
                     ],
                     "dtype": "float32"
