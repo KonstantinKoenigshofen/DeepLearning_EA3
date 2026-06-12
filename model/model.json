@@ -22,7 +22,7 @@
                             "optional": false,
                             "batchInputShape": [
                                 null,
-                                3
+                                5
                             ]
                         }
                     },
@@ -33,7 +33,7 @@
                             "trainable": true,
                             "dtype": "float32",
                             "input_dim": 390,
-                            "output_dim": 100,
+                            "output_dim": 200,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
                                 "class_name": "RandomUniform",
@@ -107,6 +107,58 @@
                         "class_name": "LSTM",
                         "config": {
                             "name": "lstm_1",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "return_sequences": true,
+                            "return_state": false,
+                            "go_backwards": false,
+                            "stateful": false,
+                            "unroll": false,
+                            "zero_output_for_mask": false,
+                            "units": 200,
+                            "activation": "tanh",
+                            "recurrent_activation": "sigmoid",
+                            "use_bias": true,
+                            "kernel_initializer": {
+                                "module": "keras.initializers",
+                                "class_name": "GlorotUniform",
+                                "config": {
+                                    "seed": null
+                                },
+                                "registered_name": null
+                            },
+                            "recurrent_initializer": {
+                                "module": "keras.initializers",
+                                "class_name": "Orthogonal",
+                                "config": {
+                                    "seed": null,
+                                    "gain": 1.0
+                                },
+                                "registered_name": null
+                            },
+                            "bias_initializer": {
+                                "module": "keras.initializers",
+                                "class_name": "Zeros",
+                                "config": {},
+                                "registered_name": null
+                            },
+                            "unit_forget_bias": true,
+                            "kernel_regularizer": null,
+                            "recurrent_regularizer": null,
+                            "bias_regularizer": null,
+                            "activity_regularizer": null,
+                            "kernel_constraint": null,
+                            "recurrent_constraint": null,
+                            "bias_constraint": null,
+                            "dropout": 0.0,
+                            "recurrent_dropout": 0.0,
+                            "seed": null
+                        }
+                    },
+                    {
+                        "class_name": "LSTM",
+                        "config": {
+                            "name": "lstm_2",
                             "trainable": true,
                             "dtype": "float32",
                             "return_sequences": false,
@@ -188,7 +240,7 @@
                 ],
                 "build_input_shape": [
                     null,
-                    3
+                    5
                 ]
             }
         },
@@ -227,7 +279,8 @@
     "weightsManifest": [
         {
             "paths": [
-                "group1-shard1of1.bin"
+                "group1-shard1of2.bin",
+                "group1-shard2of2.bin"
             ],
             "weights": [
                 {
@@ -249,14 +302,14 @@
                     "name": "embedding/embeddings",
                     "shape": [
                         390,
-                        100
+                        200
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/kernel",
                     "shape": [
-                        100,
+                        200,
                         800
                     ],
                     "dtype": "float32"
@@ -294,6 +347,29 @@
                 },
                 {
                     "name": "lstm_1/lstm_cell/bias",
+                    "shape": [
+                        800
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "lstm_2/lstm_cell/kernel",
+                    "shape": [
+                        200,
+                        800
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "lstm_2/lstm_cell/recurrent_kernel",
+                    "shape": [
+                        200,
+                        800
+                    ],
+                    "dtype": "float32"
+                },
+                {
+                    "name": "lstm_2/lstm_cell/bias",
                     "shape": [
                         800
                     ],
