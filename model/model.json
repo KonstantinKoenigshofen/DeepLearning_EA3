@@ -63,7 +63,7 @@
                             "stateful": false,
                             "unroll": false,
                             "zero_output_for_mask": false,
-                            "units": 150,
+                            "units": 200,
                             "activation": "tanh",
                             "recurrent_activation": "sigmoid",
                             "use_bias": true,
@@ -115,7 +115,7 @@
                             "stateful": false,
                             "unroll": false,
                             "zero_output_for_mask": false,
-                            "units": 150,
+                            "units": 200,
                             "activation": "tanh",
                             "recurrent_activation": "sigmoid",
                             "use_bias": true,
@@ -233,7 +233,7 @@
                 {
                     "name": "dense/kernel",
                     "shape": [
-                        150,
+                        200,
                         390
                     ],
                     "dtype": "float32"
@@ -257,45 +257,45 @@
                     "name": "lstm/lstm_cell/kernel",
                     "shape": [
                         100,
-                        600
+                        800
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/recurrent_kernel",
                     "shape": [
-                        150,
-                        600
+                        200,
+                        800
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/bias",
                     "shape": [
-                        600
+                        800
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/kernel",
                     "shape": [
-                        150,
-                        600
+                        200,
+                        800
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/recurrent_kernel",
                     "shape": [
-                        150,
-                        600
+                        200,
+                        800
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/bias",
                     "shape": [
-                        600
+                        800
                     ],
                     "dtype": "float32"
                 }
