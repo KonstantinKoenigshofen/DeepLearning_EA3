@@ -22,7 +22,7 @@
                             "optional": false,
                             "batchInputShape": [
                                 null,
-                                10
+                                15
                             ]
                         }
                     },
@@ -210,7 +210,7 @@
                 ],
                 "build_input_shape": [
                     null,
-                    10
+                    15
                 ]
             }
         },
