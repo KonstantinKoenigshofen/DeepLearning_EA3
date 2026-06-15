@@ -81,22 +81,13 @@ async function predictNextWords() {
     const probabilities = predictions.dataSync(); 
     
     // In ein Array von Objekten umwandeln zum Sortieren
-    /*
     let results = [];
     for (let i = 1; i < probabilities.length; i++) { // Start bei 1, da 0 Padding ist
         if (indexWord[i]) {
             results.push({ word: indexWord[i], prob: probabilities[i] });
         }
-    }*/
-
-    // NEU:
-    let results = [];
-    for (let i = 1; i < probabilities.length; i++) { 
-        // Filtere das Wort heraus, wenn es "<oov>" heißt!
-        if (indexWord[i] && indexWord[i] !== "<oov>") {
-            results.push({ word: indexWord[i], prob: probabilities[i] });
-        }
     }
+    
     
     // Absteigend sortieren und die Top 5 nehmen
     results.sort((a, b) => b.prob - a.prob);
@@ -141,14 +132,15 @@ function appendWord(word) {
     
     // I2) Weiter 
     // Greedy Decoding
-    /*
+    
     btnWeiter.onclick = async () => {
         const topWords = await predictNextWords();
         if (topWords && topWords.length > 0) {
             appendWord(topWords[0].word); 
         }
-    };*/
+    };
     // Zufällige Auswahl
+    /*
     btnWeiter.onclick = async () => {
             const topWords = await predictNextWords();
             if (topWords && topWords.length > 0) {
@@ -157,7 +149,7 @@ function appendWord(word) {
                 const randomIndex = Math.floor(Math.random() * k);
                 appendWord(topWords[randomIndex].word); 
             }
-        };
+        };*/
 
     // I3) Auto
     document.getElementById('btnAuto').onclick = async () => {
@@ -176,10 +168,11 @@ function appendWord(word) {
             
             if (topWords && topWords.length > 0) {
                 // Wort direkt an den Text anhängen
-                //inputTextArea.value += " " + topWords[0].word; -> noch für Greedy Decoding
+                inputTextArea.value += " " + topWords[0].word; //-> noch für Greedy Decoding
+                /* zufällige Auswahl
                 const k = Math.min(3, topWords.length);
                 const randomIndex = Math.floor(Math.random() * k);
-                inputTextArea.value += " " + topWords[randomIndex].word;
+                inputTextArea.value += " " + topWords[randomIndex].word;*/
                 
                 // 400 Millisekunden warten (UX: Man kann beim Schreiben zusehen)
                 await delay(400); 
