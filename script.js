@@ -81,9 +81,19 @@ async function predictNextWords() {
     const probabilities = predictions.dataSync(); 
     
     // In ein Array von Objekten umwandeln zum Sortieren
+    /*
     let results = [];
     for (let i = 1; i < probabilities.length; i++) { // Start bei 1, da 0 Padding ist
         if (indexWord[i]) {
+            results.push({ word: indexWord[i], prob: probabilities[i] });
+        }
+    }*/
+
+    // NEU:
+    let results = [];
+    for (let i = 1; i < probabilities.length; i++) { 
+        // Filtere das Wort heraus, wenn es "<oov>" heißt!
+        if (indexWord[i] && indexWord[i] !== "<oov>") {
             results.push({ word: indexWord[i], prob: probabilities[i] });
         }
     }
