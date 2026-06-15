@@ -129,13 +129,25 @@ function appendWord(word) {
     // I1) Vorhersage
     btnVorhersage.onclick = predictNextWords;
     
-    // I2) Weiter
+    // I2) Weiter 
+    // Greedy Decoding
+    /*
     btnWeiter.onclick = async () => {
         const topWords = await predictNextWords();
         if (topWords && topWords.length > 0) {
             appendWord(topWords[0].word); 
         }
-    };
+    };*/
+    // Zufällige Auswahl
+    btnWeiter.onclick = async () => {
+            const topWords = await predictNextWords();
+            if (topWords && topWords.length > 0) {
+                // Wählt zufällig eines der Top-3 Wörter aus, um kreativer zu sein!
+                const k = Math.min(3, topWords.length);
+                const randomIndex = Math.floor(Math.random() * k);
+                appendWord(topWords[randomIndex].word); 
+            }
+        };
 
     // I3) Auto
     document.getElementById('btnAuto').onclick = async () => {
@@ -154,7 +166,10 @@ function appendWord(word) {
             
             if (topWords && topWords.length > 0) {
                 // Wort direkt an den Text anhängen
-                inputTextArea.value += " " + topWords[0].word;
+                //inputTextArea.value += " " + topWords[0].word; -> noch für Greedy Decoding
+                const k = Math.min(3, topWords.length);
+                const randomIndex = Math.floor(Math.random() * k);
+                inputTextArea.value += " " + topWords[randomIndex].word;
                 
                 // 400 Millisekunden warten (UX: Man kann beim Schreiben zusehen)
                 await delay(400); 
