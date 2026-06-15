@@ -22,7 +22,7 @@
                             "optional": false,
                             "batchInputShape": [
                                 null,
-                                5
+                                10
                             ]
                         }
                     },
@@ -32,7 +32,7 @@
                             "name": "embedding",
                             "trainable": true,
                             "dtype": "float32",
-                            "input_dim": 2000,
+                            "input_dim": 4000,
                             "output_dim": 100,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
@@ -183,7 +183,7 @@
                             "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
-                            "units": 2000,
+                            "units": 4000,
                             "activation": "softmax",
                             "use_bias": true,
                             "kernel_initializer": {
@@ -210,7 +210,7 @@
                 ],
                 "build_input_shape": [
                     null,
-                    5
+                    10
                 ]
             }
         },
@@ -256,21 +256,21 @@
                     "name": "dense/kernel",
                     "shape": [
                         100,
-                        2000
+                        4000
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "dense/bias",
                     "shape": [
-                        2000
+                        4000
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "embedding/embeddings",
                     "shape": [
-                        2000,
+                        4000,
                         100
                     ],
                     "dtype": "float32"
