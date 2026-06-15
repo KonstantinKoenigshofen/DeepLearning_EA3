@@ -32,8 +32,8 @@
                             "name": "embedding",
                             "trainable": true,
                             "dtype": "float32",
-                            "input_dim": 390,
-                            "output_dim": 200,
+                            "input_dim": 2000,
+                            "output_dim": 100,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
                                 "class_name": "RandomUniform",
@@ -63,7 +63,7 @@
                             "stateful": false,
                             "unroll": false,
                             "zero_output_for_mask": false,
-                            "units": 200,
+                            "units": 100,
                             "activation": "tanh",
                             "recurrent_activation": "sigmoid",
                             "use_bias": true,
@@ -101,6 +101,17 @@
                             "dropout": 0.0,
                             "recurrent_dropout": 0.0,
                             "seed": null
+                        }
+                    },
+                    {
+                        "class_name": "Dropout",
+                        "config": {
+                            "name": "dropout",
+                            "trainable": true,
+                            "dtype": "float32",
+                            "rate": 0.2,
+                            "seed": null,
+                            "noise_shape": null
                         }
                     },
                     {
@@ -109,13 +120,13 @@
                             "name": "lstm_1",
                             "trainable": true,
                             "dtype": "float32",
-                            "return_sequences": true,
+                            "return_sequences": false,
                             "return_state": false,
                             "go_backwards": false,
                             "stateful": false,
                             "unroll": false,
                             "zero_output_for_mask": false,
-                            "units": 200,
+                            "units": 100,
                             "activation": "tanh",
                             "recurrent_activation": "sigmoid",
                             "use_bias": true,
@@ -156,55 +167,14 @@
                         }
                     },
                     {
-                        "class_name": "LSTM",
+                        "class_name": "Dropout",
                         "config": {
-                            "name": "lstm_2",
+                            "name": "dropout_1",
                             "trainable": true,
                             "dtype": "float32",
-                            "return_sequences": false,
-                            "return_state": false,
-                            "go_backwards": false,
-                            "stateful": false,
-                            "unroll": false,
-                            "zero_output_for_mask": false,
-                            "units": 200,
-                            "activation": "tanh",
-                            "recurrent_activation": "sigmoid",
-                            "use_bias": true,
-                            "kernel_initializer": {
-                                "module": "keras.initializers",
-                                "class_name": "GlorotUniform",
-                                "config": {
-                                    "seed": null
-                                },
-                                "registered_name": null
-                            },
-                            "recurrent_initializer": {
-                                "module": "keras.initializers",
-                                "class_name": "Orthogonal",
-                                "config": {
-                                    "seed": null,
-                                    "gain": 1.0
-                                },
-                                "registered_name": null
-                            },
-                            "bias_initializer": {
-                                "module": "keras.initializers",
-                                "class_name": "Zeros",
-                                "config": {},
-                                "registered_name": null
-                            },
-                            "unit_forget_bias": true,
-                            "kernel_regularizer": null,
-                            "recurrent_regularizer": null,
-                            "bias_regularizer": null,
-                            "activity_regularizer": null,
-                            "kernel_constraint": null,
-                            "recurrent_constraint": null,
-                            "bias_constraint": null,
-                            "dropout": 0.0,
-                            "recurrent_dropout": 0.0,
-                            "seed": null
+                            "rate": 0.2,
+                            "seed": null,
+                            "noise_shape": null
                         }
                     },
                     {
@@ -213,7 +183,7 @@
                             "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
-                            "units": 390,
+                            "units": 2000,
                             "activation": "softmax",
                             "use_bias": true,
                             "kernel_initializer": {
@@ -279,99 +249,75 @@
     "weightsManifest": [
         {
             "paths": [
-                "group1-shard1of2.bin",
-                "group1-shard2of2.bin"
+                "group1-shard1of1.bin"
             ],
             "weights": [
                 {
                     "name": "dense/kernel",
                     "shape": [
-                        200,
-                        390
+                        100,
+                        2000
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "dense/bias",
                     "shape": [
-                        390
+                        2000
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "embedding/embeddings",
                     "shape": [
-                        390,
-                        200
+                        2000,
+                        100
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/kernel",
                     "shape": [
-                        200,
-                        800
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/recurrent_kernel",
                     "shape": [
-                        200,
-                        800
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/bias",
                     "shape": [
-                        800
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/kernel",
                     "shape": [
-                        200,
-                        800
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/recurrent_kernel",
                     "shape": [
-                        200,
-                        800
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/bias",
                     "shape": [
-                        800
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "lstm_2/lstm_cell/kernel",
-                    "shape": [
-                        200,
-                        800
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "lstm_2/lstm_cell/recurrent_kernel",
-                    "shape": [
-                        200,
-                        800
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "lstm_2/lstm_cell/bias",
-                    "shape": [
-                        800
+                        400
                     ],
                     "dtype": "float32"
                 }
