@@ -211,11 +211,6 @@ function appendWord(word) {
         stopAutoPredict(); // Falls gerade Auto läuft, auch abbrechen
     };
 
-document.getElementById('btnReset').onclick = () => {
-    inputTextArea.value = '';
-    outputArea.style.display = 'none';
-};
-
 // App starten
 loadResources();
 
