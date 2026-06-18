@@ -32,7 +32,7 @@
                             "name": "embedding",
                             "trainable": true,
                             "dtype": "float32",
-                            "input_dim": 1983,
+                            "input_dim": 3000,
                             "output_dim": 100,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
@@ -161,7 +161,7 @@
                             "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
-                            "units": 1983,
+                            "units": 3000,
                             "activation": "softmax",
                             "use_bias": true,
                             "kernel_initializer": {
@@ -234,21 +234,21 @@
                     "name": "dense/kernel",
                     "shape": [
                         100,
-                        1983
+                        3000
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "dense/bias",
                     "shape": [
-                        1983
+                        3000
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "embedding/embeddings",
                     "shape": [
-                        1983,
+                        3000,
                         100
                     ],
                     "dtype": "float32"
