@@ -204,12 +204,23 @@ function appendWord(word) {
         predictNextWords();
     }
 
-    // I4) Reset
+// I4) Reset
     document.getElementById('btnReset').onclick = () => {
+        // 1. Textfeld leeren
         inputTextArea.value = '';
+        
+        // 2. Vorhersage-Chips ausblenden
         outputArea.style.display = 'none';
-        stopAutoPredict(); // Falls gerade Auto läuft, auch abbrechen
-    };
+        
+        // 3. Falls gerade die "Auto"-Schleife rattert, abbrechen
+        stopAutoPredict(); 
+
+        // 4. NEU: Das Netzwerk offiziell zurücksetzen!
+        // Leert das interne Kurzzeitgedächtnis (Hidden States) des Modells.
+        if (model && model.resetStates) {
+            model.resetStates();
+            console.log("Netzwerk-Zustand wurde zurückgesetzt.");
+        }
 
 // App starten
 loadResources();
