@@ -45,6 +45,54 @@
 
 <div class="section">
     <h2>Resultate</h2>
+    <div class="metrics-container">
+        <h3>Modell-Auswertung: Top-k Accuracy</h3>
+        <p>Die folgende Tabelle zeigt die Vorhersagegenauigkeit des Modells basierend auf einer Stichprobe von 2000 generierten Wörtern:</p>
+        
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Metrik</th>
+                    <th>Genauigkeit (%)</th>
+                    <th>Treffer (von 2000)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Top-1 Accuracy</strong></td>
+                    <td>97.50 %</td>
+                    <td>1950</td>
+                </tr>
+                <tr>
+                    <td><strong>Top-5 Accuracy</strong></td>
+                    <td>99.75 %</td>
+                    <td>1995</td>
+                </tr>
+                <tr>
+                    <td><strong>Top-10 Accuracy</strong></td>
+                    <td>99.85 %</td>
+                    <td>1997</td>
+                </tr>
+                <tr>
+                    <td><strong>Top-20 Accuracy</strong></td>
+                    <td>99.95 %</td>
+                    <td>1999</td>
+                </tr>
+                <tr>
+                    <td><strong>Top-100 Accuracy</strong></td>
+                    <td>100.00 %</td>
+                    <td>2000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="perplexity-box">
+            <strong>🌀 Perplexity (Perplexität):</strong> 1.18 
+            <div style="font-size: 0.85em; color: #555; margin-top: 5px;">
+                Ein Wert nahe 1 bedeutet, dass das Modell bei der Vorhersage des nächsten Wortes nahezu keine "Verwirrung" aufweist.
+            </div>
+        </div>
+    </div>
 </div>
 
 
