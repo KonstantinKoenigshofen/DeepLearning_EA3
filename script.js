@@ -222,6 +222,7 @@ function appendWord(word) {
             console.log("Netzwerk-Zustand wurde zurückgesetzt.");
         }
 
+    }
 // App starten
 loadResources();
 
