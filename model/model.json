@@ -22,7 +22,7 @@
                             "optional": false,
                             "batchInputShape": [
                                 null,
-                                15
+                                10
                             ]
                         }
                     },
@@ -33,7 +33,7 @@
                             "trainable": true,
                             "dtype": "float32",
                             "input_dim": 1983,
-                            "output_dim": 10,
+                            "output_dim": 100,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
                                 "class_name": "RandomUniform",
@@ -63,7 +63,7 @@
                             "stateful": false,
                             "unroll": false,
                             "zero_output_for_mask": false,
-                            "units": 1000,
+                            "units": 100,
                             "activation": "tanh",
                             "recurrent_activation": "sigmoid",
                             "use_bias": true,
@@ -115,7 +115,7 @@
                             "stateful": false,
                             "unroll": false,
                             "zero_output_for_mask": false,
-                            "units": 1000,
+                            "units": 100,
                             "activation": "tanh",
                             "recurrent_activation": "sigmoid",
                             "use_bias": true,
@@ -161,36 +161,6 @@
                             "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
-                            "units": 1000,
-                            "activation": "relu",
-                            "use_bias": true,
-                            "kernel_initializer": {
-                                "module": "keras.initializers",
-                                "class_name": "GlorotUniform",
-                                "config": {
-                                    "seed": null
-                                },
-                                "registered_name": null
-                            },
-                            "bias_initializer": {
-                                "module": "keras.initializers",
-                                "class_name": "Zeros",
-                                "config": {},
-                                "registered_name": null
-                            },
-                            "kernel_regularizer": null,
-                            "bias_regularizer": null,
-                            "kernel_constraint": null,
-                            "bias_constraint": null,
-                            "quantization_config": null
-                        }
-                    },
-                    {
-                        "class_name": "Dense",
-                        "config": {
-                            "name": "dense_1",
-                            "trainable": true,
-                            "dtype": "float32",
                             "units": 1983,
                             "activation": "softmax",
                             "use_bias": true,
@@ -218,14 +188,16 @@
                 ],
                 "build_input_shape": [
                     null,
-                    15
+                    10
                 ]
             }
         },
         "training_config": {
             "loss": "categorical_crossentropy",
             "loss_weights": null,
-            "metrics": null,
+            "metrics": [
+                "accuracy"
+            ],
             "weighted_metrics": null,
             "run_eagerly": false,
             "steps_per_execution": 1,
@@ -234,7 +206,7 @@
                 "class_name": "Adam",
                 "config": {
                     "name": "adam",
-                    "learning_rate": 9.999999747378752e-05,
+                    "learning_rate": 0.0010000000474974513,
                     "weight_decay": null,
                     "clipnorm": null,
                     "global_clipnorm": null,
@@ -255,48 +227,19 @@
     "weightsManifest": [
         {
             "paths": [
-                "group1-shard1of15.bin",
-                "group1-shard2of15.bin",
-                "group1-shard3of15.bin",
-                "group1-shard4of15.bin",
-                "group1-shard5of15.bin",
-                "group1-shard6of15.bin",
-                "group1-shard7of15.bin",
-                "group1-shard8of15.bin",
-                "group1-shard9of15.bin",
-                "group1-shard10of15.bin",
-                "group1-shard11of15.bin",
-                "group1-shard12of15.bin",
-                "group1-shard13of15.bin",
-                "group1-shard14of15.bin",
-                "group1-shard15of15.bin"
+                "group1-shard1of1.bin"
             ],
             "weights": [
                 {
                     "name": "dense/kernel",
                     "shape": [
-                        1000,
-                        1000
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "dense/bias",
-                    "shape": [
-                        1000
-                    ],
-                    "dtype": "float32"
-                },
-                {
-                    "name": "dense_1/kernel",
-                    "shape": [
-                        1000,
+                        100,
                         1983
                     ],
                     "dtype": "float32"
                 },
                 {
-                    "name": "dense_1/bias",
+                    "name": "dense/bias",
                     "shape": [
                         1983
                     ],
@@ -306,53 +249,53 @@
                     "name": "embedding/embeddings",
                     "shape": [
                         1983,
-                        10
+                        100
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/kernel",
                     "shape": [
-                        10,
-                        4000
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/recurrent_kernel",
                     "shape": [
-                        1000,
-                        4000
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm/lstm_cell/bias",
                     "shape": [
-                        4000
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/kernel",
                     "shape": [
-                        1000,
-                        4000
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/recurrent_kernel",
                     "shape": [
-                        1000,
-                        4000
+                        100,
+                        400
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "lstm_1/lstm_cell/bias",
                     "shape": [
-                        4000
+                        400
                     ],
                     "dtype": "float32"
                 }
