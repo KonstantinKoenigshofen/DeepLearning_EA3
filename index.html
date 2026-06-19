@@ -77,13 +77,13 @@
             <tbody>
                 <tr>
                     <td><strong>Top-1 Accuracy</strong></td>
-                    <td>97.50 %</td>
-                    <td>1950</td>
+                    <td>96.95 %</td>
+                    <td>1939</td>
                 </tr>
                 <tr>
                     <td><strong>Top-5 Accuracy</strong></td>
-                    <td>99.75 %</td>
-                    <td>1995</td>
+                    <td>99.70 %</td>
+                    <td>1994</td>
                 </tr>
                 <tr>
                     <td><strong>Top-10 Accuracy</strong></td>
@@ -92,8 +92,8 @@
                 </tr>
                 <tr>
                     <td><strong>Top-20 Accuracy</strong></td>
-                    <td>99.95 %</td>
-                    <td>1999</td>
+                    <td>99.90 %</td>
+                    <td>1998</td>
                 </tr>
                 <tr>
                     <td><strong>Top-100 Accuracy</strong></td>
@@ -104,7 +104,7 @@
         </table>
 
         <div class="perplexity-box">
-            <strong>🌀 Perplexity (Perplexität):</strong> 1.18 
+            <strong>🌀 Perplexity (Perplexität):</strong> 1.24 
             <div style="font-size: 0.85em; color: #555; margin-top: 5px;">
                 Ein Wert nahe 1 bedeutet, dass das Modell bei der Vorhersage des nächsten Wortes nahezu keine "Verwirrung" aufweist.
             </div>
@@ -133,7 +133,10 @@
 
     <p> Der Artikel-Datensatz erwies sich als nicht geeignet, da hier Abkürzungen, Englische Begriffe usw. ins Vokabular aufgenommen wurden</p>
 
-    <p> NOTIZ: Man könnte noch probieren eine noch höhere Sequence_Length und größeres Vokabular zu verwenden.</p>
+    <p> NOTIZ: Man könnte noch probieren eine noch höhere Sequence_Length und größeres Vokabular zu verwenden. Bei einem größeren Vokabular
+        gibt es wie erwartet insgesamt eine größere Vielfalt an Wörtern. Die vom Modell erstellten Sätze machen somit auch etwas mehr Sinn. 
+        Eine höhere Sequence_Length von 30 schien auch bessere Ergebnisse zu liefern.
+    </p>
 
 
   

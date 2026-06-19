@@ -3,7 +3,7 @@
 let model;
 let wordIndex = {};  // Wort -> ID
 let indexWord = {};  // ID -> Wort
-const SEQUENCE_LENGTH = 40; // Muss identisch zum Python-Training sein!
+const SEQUENCE_LENGTH = 30; // Muss identisch zum Python-Training sein!
 let autoPredictInterval;
 let isAutoPredicting = false; // Flag, um die Schleife zu stoppen
 const MAX_AUTO_WORDS = 10;    // Laut Aufgabe: bis zu 10 Wörter
