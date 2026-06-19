@@ -49,16 +49,18 @@
 
 <div class="section">
     <h2>Resultate</h2>
-    <div class="section">
-        <h3>Architektur:</h3>
-        <p>
-            Zwei Layer mit jeweils 200 Units haben bei 100 Epochen einen besseren Accuracy Wert erbracht. Da der Datensatz allerdings nicht
-            allzu groß ist reichen 100 Units pro Schicht aus.
-            Bei einer Lernrate von 0.01 veränderte sich der Loss-Wert nach einer gewissen Anzahl an Epochen nicht mehr großartig. 
-            Deshalb wurde eine Lernrate von 0.001 verwendet.
-            RMSProp führte bei der selben Epochenanzahl zu einem höheren Loss-Wert als Adam.
-        </p>
-    </div>
+    
+    <h3>Architektur:</h3>
+    <p>
+        Es wurden zwei LSTM-Schichten mit jeweils 100 Units verwendet, da diese für den Datensatz ausreichend sind.
+        (Zwei Layer mit jeweils 200 Units hatten bei 100 Epochen einen besseren Accuracy Wert erbracht. Da der Datensatz allerdings nicht
+        allzu groß ist reichen 100 Units pro Schicht aus.)
+        Bei einer Lernrate von 0.01 veränderte sich der Loss-Wert nach einer gewissen Anzahl an Epochen nicht mehr großartig,  
+        weshalb eine Lernrate von 0.001 verwendet wurde.
+        Der Optimizer RMSProp führte bei der selben Epochenanzahl zu einem höheren Loss-Wert als Adam. 
+        AdamW erreichte ähnliche Werte wie Adam. Schließlich wurde Adam verwendet.
+    </p>
+    
 
     <div class="metrics-container">
         <h3>Modell-Auswertung: Top-k Accuracy</h3>
