@@ -122,6 +122,7 @@
     dass das Modell bei zu kurzen Eingaben (Padding) versagt, da es den Text lediglich memoriert und nicht
      generalisiert hat.</p>
     <p> Vielleicht noch Greedy Decoding erwähnen</p>
+    <p> Eine Sequence_Length von 20 hatte bessere Ergebnisse als niedrigere Werte ergeben. Ebenso erwies sich eine Vocab_size von 4000 als gut.</p>
 
     <p>Zwei Layer mit jeweils 200 Units haben bei 100 Epochen einen besseren Accuracy Wert erbracht. Da der Datensatz allerdings nicht
         allzu groß ist reichen 100 Units pro Schicht aus.
@@ -131,6 +132,8 @@
     </p>
 
     <p> Der Artikel-Datensatz erwies sich als nicht geeignet, da hier Abkürzungen, Englische Begriffe usw. ins Vokabular aufgenommen wurden</p>
+
+    <p> NOTIZ: Man könnte noch probieren eine noch höhere Sequence_Length und größeres Vokabular zu verwenden.</p>
 
 
   
