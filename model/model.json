@@ -32,7 +32,7 @@
                             "name": "embedding",
                             "trainable": true,
                             "dtype": "float32",
-                            "input_dim": 4000,
+                            "input_dim": 3500,
                             "output_dim": 256,
                             "embeddings_initializer": {
                                 "module": "keras.initializers",
@@ -172,7 +172,7 @@
                             "name": "dense",
                             "trainable": true,
                             "dtype": "float32",
-                            "units": 4000,
+                            "units": 3500,
                             "activation": "softmax",
                             "use_bias": true,
                             "kernel_initializer": {
@@ -214,11 +214,11 @@
             "steps_per_execution": 1,
             "jit_compile": false,
             "optimizer_config": {
-                "class_name": "Adam",
+                "class_name": "AdamW",
                 "config": {
-                    "name": "adam",
+                    "name": "adamw",
                     "learning_rate": 0.0010000000474974513,
-                    "weight_decay": null,
+                    "weight_decay": 0.004,
                     "clipnorm": null,
                     "global_clipnorm": null,
                     "clipvalue": null,
@@ -246,21 +246,21 @@
                     "name": "dense/kernel",
                     "shape": [
                         100,
-                        4000
+                        3500
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "dense/bias",
                     "shape": [
-                        4000
+                        3500
                     ],
                     "dtype": "float32"
                 },
                 {
                     "name": "embedding/embeddings",
                     "shape": [
-                        4000,
+                        3500,
                         256
                     ],
                     "dtype": "float32"
