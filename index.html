@@ -114,6 +114,18 @@
     <!-- DISKUSSION -->
 <div class="section">
   <h2>Diskussion</h2>
+  <p>
+    Zuerst wurde der Artikel-Datensatz on kaggle verwendet, wobei dieser sich als nicht geeignet erwies, 
+    da hier Abkürzungen, Englische Begriffe und einige falsch geschriebene Wörter ins Vokabular aufgenommen wurden. 
+  </p>
+  <p>
+    Demnach wurde ein Buch als Datensatz verwendet, wobei dieses insgesamt 3991 Wörter als Vokabular aufwies. Das Training
+    wurde auf Wörterbuchgrößen von 2000 bis 4000 durchgeführt, wobei bei einem größeren Vokabular wie erwartet auch eine
+    größere Vielfalt an Wörtern vorhergesagt wurde. Das Finale Modell wurde schließlich mit einer Wörterbuchgröße von 
+    4000 trainiert, da dies dazu führte, dass die herausgegebenen Sätze etwas mehr Sinn machten.
+  </p>
+
+
   <p>Bei dem ersten trainierten Modell wurde ein accuracy-Wert von nahezu 1 erreicht, wobei der ursprüngliche Text allerdings
     nur wiedergegeben wurde, wenn die ersten 5 Wörter dieselben aus diesem Text waren. Dazu KI: Es wurde beobachtet, 
     dass eine Erhöhung der Sequence Length bei gleichzeitigem Overfitting (Accuracy ~1.0) dazu führt, 
@@ -121,7 +133,6 @@
      generalisiert hat.</p>
     <p> Vielleicht noch Greedy Decoding erwähnen</p>
 
-    <p> Der Artikel-Datensatz erwies sich als nicht geeignet, da hier Abkürzungen, Englische Begriffe usw. ins Vokabular aufgenommen wurden</p>
 
     <p> NOTIZ: Man könnte noch probieren eine noch höhere Sequence_Length und größeres Vokabular zu verwenden. Bei einem größeren Vokabular
         gibt es wie erwartet insgesamt eine größere Vielfalt an Wörtern. Die vom Modell erstellten Sätze machen somit auch etwas mehr Sinn. 
