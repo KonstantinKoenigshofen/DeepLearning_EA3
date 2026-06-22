@@ -52,7 +52,7 @@ async function loadResources() {
 
 // --- 3. Textverarbeitung & Vorhersage (Das Herzstück) ---
 async function predictNextWords() {
-    const text = inputTextArea.value.trim().toLowerCase();
+    let text = inputTextArea.value.trim().toLowerCase();
     if (text.length === 0) return;
 
     // 1. Text in Wörter aufteilen (simpler Tokenizer)
