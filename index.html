@@ -123,25 +123,17 @@
     Demnach wurde ein Buch als Datensatz verwendet, wobei dieses insgesamt 3991 Wörter als Vokabular aufwies. Das Training
     wurde auf Wörterbuchgrößen von 2000 bis 4000 durchgeführt, wobei bei einem größeren Vokabular wie erwartet auch eine
     größere Vielfalt an Wörtern vorhergesagt wurde. Das Finale Modell wurde schließlich mit einer Wörterbuchgröße von 
-    4000 trainiert, da dies dazu führte, dass die herausgegebenen Sätze etwas mehr Sinn machten.
+    4000 und einer Sequenzlänge von 15 trainiert, da größere Sequenzlänge von 20, 30 und 40 keine bemerkenswerte Unterschiede zeigten. 
+    Eine Sequenzlänge von 15 schien allerdings bessere Ergebnisse zu erzielen, als eine Länge von 5 oder 10.
   </p>
-  <p>Allgemein ist aufgefallen, dass das Modell trotz eines niedrigen Loss-Wertes dennoch keine komplett grammatikalisch richtigen Sätze erstellen kann.
-    Ein Grund dafür kann sein, dass die Menge an Daten nicht groß und vielseitig genug ist. 
+  <p> 
+    Wenn genauso viele Wörter eingegeben werden, wie die beim Training verwendete Sequenzlänge lang ist 
+    (in dem Falle 15, also z.B die ersten 15 Wörter "Wie froh bin ich, daß ich weg bin! Bester Freund, was ist das Herz des"),
+    so fängt das LSTM an, den ursprünglichen Text wiederzugeben. Allerdings wird diese Wiedergabe einige Wörter später durch das
+    wahrscheinlichere Wortpaar "mir s wohl" unterbrochenen, wodurch die darauf folgenden Wörter nicht mehr mit dem Original übereinstimmen.
+    Da die Daten aber schon etwas reproduziert werden konnten, kann sich daraus ein Datenschutzproblem ergeben, wenn es sich zum Beispiel 
+    nicht wie hier um ein gemeinfreies Buch handelt, sondern um wichtige Dokumente oder Ähnlichem.
   </p>
-  <p> Hier dann noch reproduzierung der Daten mit Bezug auf Datenschutz</p>
-
-  <p> Der Text von Goethe enthielt Wörter mit Apostrophen, welche von dem geschriebenen Python Skript durch ein Leerzeichen ersetzt wurden.
-  </p>
-
-
-  <p>Bei dem ersten trainierten Modell wurde ein accuracy-Wert von nahezu 1 erreicht, wobei der ursprüngliche Text allerdings
-    nur wiedergegeben wurde, wenn die ersten 5 Wörter dieselben aus diesem Text waren. Dazu KI: Es wurde beobachtet, 
-    dass eine Erhöhung der Sequence Length bei gleichzeitigem Overfitting (Accuracy ~1.0) dazu führt, 
-    dass das Modell bei zu kurzen Eingaben (Padding) versagt, da es den Text lediglich memoriert und nicht
-     generalisiert hat.</p>
-
-
-
 
   
 
