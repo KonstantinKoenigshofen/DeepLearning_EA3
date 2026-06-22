@@ -56,8 +56,13 @@ async function predictNextWords() {
     if (text.length === 0) return;
 
     // 1. Text in Wörter aufteilen (simpler Tokenizer)
-    // Ersetzt Satzzeichen durch Leerzeichen und splittet
-    let words = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(/\s+/);
+    // ALT:
+    // let words = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(/\s+/);
+    
+    // NEU: Säubert den Text exakt so wie das Python-Backend!
+    // Ersetzt alles, was KEIN Buchstabe (a-z, A-Z) und KEIN Umlaut ist, durch ein Leerzeichen.
+    text = text.replace(/[^a-zA-ZäöüÄÖÜß\s]/g, " ");
+    let words = text.split(/\s+/).filter(word => word.length > 0);
     
     // 2. Wir brauchen nur die letzten 'SEQUENCE_LENGTH' Wörter
     let recentWords = words.slice(-SEQUENCE_LENGTH);

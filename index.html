@@ -57,6 +57,7 @@
         weshalb eine Lernrate von 0.001 verwendet wurde.
         Der Optimizer RMSProp führte bei der selben Epochenanzahl zu einem höheren Loss-Wert als Adam. 
         AdamW erreichte ähnliche Werte wie Adam. Schließlich wurde Adam verwendet.
+        Das Modell wurde über 100 Epochen trainiert.
     </p>
     
 
@@ -75,34 +76,34 @@
             <tbody>
                 <tr>
                     <td><strong>Top-1 Accuracy</strong></td>
-                    <td>96.95 %</td>
-                    <td>1939</td>
+                    <td>94.15 %</td>
+                    <td>1883</td>
                 </tr>
                 <tr>
                     <td><strong>Top-5 Accuracy</strong></td>
-                    <td>99.70 %</td>
-                    <td>1994</td>
+                    <td>98.75 %</td>
+                    <td>1975</td>
                 </tr>
                 <tr>
                     <td><strong>Top-10 Accuracy</strong></td>
-                    <td>99.85 %</td>
-                    <td>1997</td>
+                    <td>99.30 %</td>
+                    <td>1986</td>
                 </tr>
                 <tr>
                     <td><strong>Top-20 Accuracy</strong></td>
-                    <td>99.90 %</td>
-                    <td>1998</td>
+                    <td>99.65 %</td>
+                    <td>1993</td>
                 </tr>
                 <tr>
                     <td><strong>Top-100 Accuracy</strong></td>
-                    <td>100.00 %</td>
-                    <td>2000</td>
+                    <td>99.90 %</td>
+                    <td>1998</td>
                 </tr>
             </tbody>
         </table>
 
         <div class="perplexity-box">
-            <strong>🌀 Perplexity (Perplexität):</strong> 1.24 
+            <strong>🌀 Perplexity (Perplexität):</strong> 1.41
             <div style="font-size: 0.85em; color: #555; margin-top: 5px;">
                 Ein Wert nahe 1 bedeutet, dass das Modell bei der Vorhersage des nächsten Wortes nahezu keine "Verwirrung" aufweist.
             </div>
@@ -124,6 +125,13 @@
     größere Vielfalt an Wörtern vorhergesagt wurde. Das Finale Modell wurde schließlich mit einer Wörterbuchgröße von 
     4000 trainiert, da dies dazu führte, dass die herausgegebenen Sätze etwas mehr Sinn machten.
   </p>
+  <p>Allgemein ist aufgefallen, dass das Modell trotz eines niedrigen Loss-Wertes dennoch keine komplett grammatikalisch richtigen Sätze erstellen kann.
+    Ein Grund dafür kann sein, dass die Menge an Daten nicht groß und vielseitig genug ist. 
+  </p>
+  <p> Hier dann noch reproduzierung der Daten mit Bezug auf Datenschutz</p>
+
+  <p> Der Text von Goethe enthielt Wörter mit Apostrophen, welche von dem geschriebenen Python Skript durch ein Leerzeichen ersetzt wurden.
+  </p>
 
 
   <p>Bei dem ersten trainierten Modell wurde ein accuracy-Wert von nahezu 1 erreicht, wobei der ursprüngliche Text allerdings
@@ -131,14 +139,8 @@
     dass eine Erhöhung der Sequence Length bei gleichzeitigem Overfitting (Accuracy ~1.0) dazu führt, 
     dass das Modell bei zu kurzen Eingaben (Padding) versagt, da es den Text lediglich memoriert und nicht
      generalisiert hat.</p>
-    <p> Vielleicht noch Greedy Decoding erwähnen</p>
 
 
-    <p> NOTIZ: Man könnte noch probieren eine noch höhere Sequence_Length und größeres Vokabular zu verwenden. Bei einem größeren Vokabular
-        gibt es wie erwartet insgesamt eine größere Vielfalt an Wörtern. Die vom Modell erstellten Sätze machen somit auch etwas mehr Sinn. 
-        Eine höhere Sequence_Length von 30 schien auch bessere Ergebnisse zu liefern. Das Buch hat insgesamt ein Vokabular von 3991 Wörter, 
-        weshalb einer Vocab_size von 4000 verwendet wurde.
-    </p>
 
 
   
