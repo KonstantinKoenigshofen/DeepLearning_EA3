@@ -143,17 +143,26 @@
 <div class="section">
   <h2>Dokumentation</h2>
   <h3>Technisch:</h3>
-    <p>Die Bibliothek TensorFlow.js (TFJS) wurde verwendet, um die Daten in Tensoren umzuwandeln und das FFNN direkt im Browser
-    zu erstellen, trainieren und auszuführen.</p>
+    <p>Die Bibliothek TensorFlow wurde für das Erstellen und Trainieren des LSTM verwendet.</p>
 
-    <p>Die Bibliothek tfjs-vis (TF Visor) wurde bei dem trainieren der Neuronalen Netze verwendet, um den Trainingsprozess und 
-    die Veränderung der Loss-Werte zu überwachen.</p>
+    <p>Die Bibliothek TensorFlow.js (TFJS) wurde verwendet, um das Model für die Verwendung im Browser zu 
+        konvertieren.
+    </p>
 
-    <p>Die Bibliothek Chart.js wird für die Datenvisualisierung genutzt. 
-    Bei dieser Aufgbae wird sie verwendet, um den Datensatz und die Resultate der Modelle in Streudiagrammen darzustellen.</p>
+
   <h3>Fachlich:</h3>
     <p>
-        Das Modell darf nicht zu groß sein < 50MB, da sonst der Browser abstürzen kann.
+        Zuerst wurden die Daten über eine http-Anfrage in ein Google Colab Notebook geladen.
+        Danach wurde der Text zuerst von Zahlen, Sonderzeichen usw. gesäubert und anschließend 
+        mithilfe eines Tokenizer verarbeitet. Anschließend wurde noch das One-Hot Encoding durchgeführt.
+        Dann erfolgte das Training und der Export in Tensorflow.js. 
+    </p>
+    <p>
+        In der JavaScript-Datei wurde nun eine Funktion implementiert, um das Modell und das Wörterbuch zu laden.
+        Weiterhin wurde eine Funktion erstellt, welche die Nutzereingaben verarbeiten und in einen Tensor 
+        umwandelt und anschließend das Modell eine Vorhersage darauf trifft.
+        Auch für das Darstellen der Vorhersagen und der Funktionalität der Buttons wurden
+        ebenfalls Funktionen implementiert.
     </p>
 
 </div>

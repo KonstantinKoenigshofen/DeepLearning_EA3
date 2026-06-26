@@ -35,7 +35,7 @@ async function loadResources() {
         // Modell laden
         model = await tf.loadLayersModel(BASE_URL + 'model/model.json');
         
-        statusDiv.innerText = "✅ Modell und Wörterbuch erfolgreich geladen! Bereit.";
+        statusDiv.innerText = "Modell und Wörterbuch geladen.";
         statusDiv.style.color = "green";
         
         // Buttons aktivieren
@@ -45,7 +45,7 @@ async function loadResources() {
 
     } catch (error) {
         console.error("Ladefehler:", error);
-        statusDiv.innerText = "❌ Fehler beim Laden. Läuft der lokale Webserver?";
+        statusDiv.innerText = "Fehler beim Laden.";
         statusDiv.style.color = "red";
     }
 }
